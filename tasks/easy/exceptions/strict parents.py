@@ -62,10 +62,10 @@ if __name__ == '__main__':
         else:
             print("Ребенок получил хорошую оценку")
             gift = random_gift()
-    except RuntimeError as exc:
+    except RuntimeError:
         print("Ошибка")
         punish_dog()
-    except ValueError as exc:
+    except ValueError:
         punish_child(bad_score=get_score())
     else:
         praise(gift)
