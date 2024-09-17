@@ -22,7 +22,21 @@ from typing import Union
 
 
 def calculator(num1: int, num2: int, operation: str) -> Union[int, float, str]:
-    result = None
+
+    if operation in ('+', '-', '*', '/'):
+        if operation == '+':
+            result = float("%.2f" % (num1 + num2))
+        elif operation == '-':
+            result = float("%.2f" % (num1 - num2))
+        elif operation == '*':
+            result = float("%.2f" % (num1 * num2))
+        elif operation == '/':
+            if num2 != 0:
+                result = float("%.20f" % (num1 / num2))
+            else:
+                result = ("Деление на ноль")
+    else:
+        result = ("Неизвестная операция")
     return result
 
 

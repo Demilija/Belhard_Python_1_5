@@ -15,6 +15,9 @@ min_in_list([7, 2, 4, 6, 1, 4]) -> 1
 def min_in_list(some_list: list) -> int:
     min_value = None
     # TODO Написать свой код здесь
+    for i in some_list:
+        min_value = min(some_list)
+
     return min_value
 
 

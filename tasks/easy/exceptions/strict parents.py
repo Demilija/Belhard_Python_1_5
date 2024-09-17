@@ -28,24 +28,24 @@ import random
 def get_score():
     result = random.randint(-5, 10)
     if result <= 0:
-        raise RuntimeError('Собака съела дневник')
+        raise RuntimeError("Собака съела дневник")
     return result
 
 
 def punish_child(bad_score):
-    print(f'Всыпать ремня за то, что ребенок получил {bad_score}')
+    print(f"Всыпать ремня за то, что ребенок получил {bad_score}")
 
 
 def punish_dog():
-    print('Накричать на собаку')
+    print("Накричать на собаку")
 
 
 def praise(some_gift):
-    print(f'Дать денежку на: {some_gift}')
+    print(f"Дать денежку на: {some_gift}")
 
 
 def cook_dinner():
-    print('\nПриготовить ужин')
+    print("\nПриготовить ужин")
 
 
 def random_gift():
@@ -55,4 +55,19 @@ def random_gift():
 if __name__ == '__main__':
     print("Просим показать ребенка дневник\n")
     gift = None
-    # TODO написать свой код здесь
+
+    try:
+        if get_score() < 7:
+            raise ValueError("get_score()")
+        else:
+            print("Ребенок получил хорошую оценку")
+            gift = random_gift()
+    except RuntimeError:
+        print("Ошибка")
+        punish_dog()
+    except ValueError:
+        punish_child(bad_score=get_score())
+    else:
+        praise(gift)
+    finally:
+        cook_dinner()
